@@ -1,0 +1,29 @@
+name: Check Links
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    # Run every Monday at 9am — catches links that rot over time
+    - cron: '0 9 * * 1'
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check links in HTML and Markdown
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: |
+            --verbose
+            --no-progress
+            --exclude 'formspree\.io/f/YOUR_FORM_ID'
+            --exclude 'mailto:'
+            --exclude 'localhost'
+            --exclude 'renacricut\.com'
+            index.html
+            README.md
+            CLAUDE.md
+          fail: true

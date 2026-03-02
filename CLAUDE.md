@@ -102,10 +102,30 @@ Use `loading="eager"` on `hero-table.jpg`, `loading="lazy"` on everything else.
 - [ ] Footer tagline: `"Handmade Pesach pieces · 20XX"`
 - [ ] `<meta name="description">` — update year
 
+## Custom Domain
+
+`CNAME` file is set to `renacricut.com`. When Rena buys the domain:
+1. At the domain registrar, add a CNAME DNS record: `www` → `yehoshuk.github.io`
+2. Add an A record: `@` → `185.199.108.153` (and 109, 110, 111)
+3. In GitHub repo Settings → Pages → Custom domain: enter `renacricut.com`
+4. GitHub will provision HTTPS automatically within ~24 hours
+
+To use a different domain, update the `CNAME` file and repeat step 3.
+
+## Link Checker (GitHub Actions)
+
+`.github/workflows/check-links.yml` runs automatically on every push and
+every Monday at 9am. It checks all links in `index.html`, `README.md`,
+and `CLAUDE.md`. Results appear under the repo's Actions tab.
+
+Excluded from checks: `mailto:` links, the Formspree placeholder URL,
+localhost, and `renacricut.com` (not live until domain is connected).
+
 ## Before Going Live
 
 - [ ] Replace all Unsplash placeholder images with real product photos
 - [ ] Complete Formspree setup above
+- [ ] Update `CNAME` if using a domain other than `renacricut.com`
 - [ ] Test form submission end-to-end
 - [ ] Check on iPhone Safari and Android Chrome
 - [ ] Run [PageSpeed Insights](https://pagespeed.web.dev) on the live URL
