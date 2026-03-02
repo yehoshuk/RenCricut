@@ -2,7 +2,7 @@
 
 > Handmade Cricut products for your Seder table, designed and made to order by Rena.
 
-**[View the live site →](https://yehoshuk.github.io/RenCricut/)**
+**[View the live site →](https://rencricut.netlify.com)**
 
 <!-- Add a screenshot here once the site has real product photos:
      docs/screenshot.png — a browser screenshot of the live site -->
@@ -35,7 +35,7 @@ Everything is made to order, so your family name, your words, and your details g
 - HTML, CSS, JavaScript — no frameworks, no build tools
 - [Google Fonts](https://fonts.google.com) — Playfair Display, Cormorant Garamond, DM Sans
 - [Formspree](https://formspree.io) — contact form handling
-- [GitHub Pages](https://pages.github.com) — free hosting
+- [Netlify](https://netlify.com) — free hosting
 
 ## Running Locally
 

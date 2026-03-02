@@ -1,12 +1,12 @@
 # RenCricut
 
 Rena's Pesach Cricut product website. Plain HTML/CSS/JS. No build step.
-Deployed to GitHub Pages. One page — all content lives in `index.html`.
+Deployed to Netlify. One page — all content lives in `index.html`.
 
 ## Commands
 
 ```bash
-# Deploy (live on GitHub Pages in ~60 seconds)
+# Deploy (pushing to main triggers a Netlify deploy automatically)
 git add -p
 git commit -m "describe change"
 git push
@@ -16,7 +16,7 @@ npx serve .           # Node
 python -m http.server # Python 3
 
 # Live site
-# https://yehoshuk.github.io/RenCricut/
+# https://rencricut.netlify.com
 ```
 
 ## File Structure
@@ -104,15 +104,13 @@ Use `loading="eager"` on `hero-table.jpg`, `loading="lazy"` on everything else.
 
 ## Custom Domain
 
-**Do not add a `CNAME` file until the domain DNS is live** — adding it early
-breaks the `yehoshuk.github.io/RenCricut` URL before the custom domain works.
-
 When Rena buys the domain (e.g. `renacricut.com`):
-1. At the registrar, add a CNAME DNS record: `www` → `yehoshuk.github.io`
-2. Add A records: `@` → `185.199.108.153`, `.154`, `.155`, `.156`
-3. Create a `CNAME` file in the repo root containing just: `renacricut.com`
-4. In GitHub repo Settings → Pages → Custom domain: enter `renacricut.com`
-5. GitHub provisions HTTPS automatically within ~24 hours
+1. At the registrar, add a CNAME DNS record: `www` → `rencricut.netlify.com`
+2. Add an A record: `@` → `75.2.60.5` (Netlify's load balancer)
+3. In the Netlify dashboard → Site settings → Domain management → Add custom domain → enter `renacricut.com`
+4. Netlify provisions HTTPS automatically within ~24 hours
+
+No file changes to the repo are needed for the custom domain — Netlify manages it entirely through the dashboard.
 
 ## Link Checker (GitHub Actions)
 
@@ -121,13 +119,13 @@ every Monday at 9am. It checks all links in `index.html`, `README.md`,
 and `CLAUDE.md`. Results appear under the repo's Actions tab.
 
 Excluded from checks: `mailto:` links, the Formspree placeholder URL,
-localhost, and `renacricut.com` (not live until domain is connected).
+localhost, `renacricut.com` (not live until domain is connected), and
+`rencricut.netlify.com` (CI runners can't reliably reach our own site).
 
 ## Before Going Live
 
 - [ ] Replace all Unsplash placeholder images with real product photos
 - [ ] Complete Formspree setup above
-- [ ] Add `CNAME` file only after domain DNS is configured (see Custom Domain above)
 - [ ] Test form submission end-to-end
 - [ ] Check on iPhone Safari and Android Chrome
 - [ ] Run [PageSpeed Insights](https://pagespeed.web.dev) on the live URL
