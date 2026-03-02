@@ -1,0 +1,9 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Local Claude overrides (personal notes, not shared)
+.claude.local.md
+
+# Logs
+*.log
