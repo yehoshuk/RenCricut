@@ -23,6 +23,8 @@ jobs:
             --exclude 'mailto:'
             --exclude 'localhost'
             --exclude 'renacricut\.com'
+            --exclude 'images\.unsplash\.com'
+            --exclude 'yehoshuk\.github\.io'
             index.html
             README.md
             CLAUDE.md

@@ -104,13 +104,15 @@ Use `loading="eager"` on `hero-table.jpg`, `loading="lazy"` on everything else.
 
 ## Custom Domain
 
-`CNAME` file is set to `renacricut.com`. When Rena buys the domain:
-1. At the domain registrar, add a CNAME DNS record: `www` → `yehoshuk.github.io`
-2. Add an A record: `@` → `185.199.108.153` (and 109, 110, 111)
-3. In GitHub repo Settings → Pages → Custom domain: enter `renacricut.com`
-4. GitHub will provision HTTPS automatically within ~24 hours
+**Do not add a `CNAME` file until the domain DNS is live** — adding it early
+breaks the `yehoshuk.github.io/RenCricut` URL before the custom domain works.
 
-To use a different domain, update the `CNAME` file and repeat step 3.
+When Rena buys the domain (e.g. `renacricut.com`):
+1. At the registrar, add a CNAME DNS record: `www` → `yehoshuk.github.io`
+2. Add A records: `@` → `185.199.108.153`, `.154`, `.155`, `.156`
+3. Create a `CNAME` file in the repo root containing just: `renacricut.com`
+4. In GitHub repo Settings → Pages → Custom domain: enter `renacricut.com`
+5. GitHub provisions HTTPS automatically within ~24 hours
 
 ## Link Checker (GitHub Actions)
 
@@ -125,7 +127,7 @@ localhost, and `renacricut.com` (not live until domain is connected).
 
 - [ ] Replace all Unsplash placeholder images with real product photos
 - [ ] Complete Formspree setup above
-- [ ] Update `CNAME` if using a domain other than `renacricut.com`
+- [ ] Add `CNAME` file only after domain DNS is configured (see Custom Domain above)
 - [ ] Test form submission end-to-end
 - [ ] Check on iPhone Safari and Android Chrome
 - [ ] Run [PageSpeed Insights](https://pagespeed.web.dev) on the live URL
